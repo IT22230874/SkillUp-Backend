@@ -46,20 +46,6 @@ SkillUp is an online learning platform that enables students to register, browse
 
 ---
 
-## 📁 Project Structure
-
-backend/
-│
-├── controllers/ # Logic for courses, auth, and GPT
-├── models/ # Mongoose schemas
-├── routes/ # Route definitions
-├── middleware/ # Auth & role checks
-├── config/ # DB & environment setup
-├── .env.example # Environment variables template
-├── server.js # Entry point
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -72,8 +58,9 @@ backend/
 
 ```
 git clone https://github.com/IT22230874/SkillUp-Backend.git
-cd skillup-backend
+
 npm install
+
 Environment Variables
 Create a .env file in the root with the following content:
 
@@ -91,6 +78,13 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 Run the Server
 
 npm start
-Server will run at http://localhost:4000.
+Server will run at http://localhost:4000
+
+```
+
+### API Documentation
+
+```
+Swagger docs available at http://localhost:4000/api-docs
 
 ```

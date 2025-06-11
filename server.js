@@ -4,6 +4,8 @@ const cors = require('cors');
 const chatRoutes = require('./routes/chatRoutes');
 const mongoose = require('mongoose');
 const passport = require('./config/config');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./config/swagger');
 
 const app = express();
 app.use(cors());
@@ -16,6 +18,8 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => console.log('MongoDB connected'))
 .catch((err) => console.error('MongoDB connection error:', err));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
@@ -34,4 +38,5 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
+  console.log('Swagger docs available at http://localhost:4000/api-docs');
 });
